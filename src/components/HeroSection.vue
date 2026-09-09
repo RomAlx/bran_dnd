@@ -2,22 +2,30 @@
 import { bran } from '../data/bran'
 
 const avatarSrc = `${import.meta.env.BASE_URL}bran-avatar.jpeg`
+const avatarWideSrc = `${import.meta.env.BASE_URL}bran-avatar-wide.jpeg`
 const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
 </script>
 
 <template>
   <header id="hero" class="hero">
-    <img
-      class="hero__image"
-      :src="avatarSrc"
-      :alt="`${bran.name} — дварф с капюшоном и родовым бочонком`"
-      width="1024"
-      height="1024"
-    />
+    <picture class="hero__media">
+      <source :srcset="avatarWideSrc" media="(min-width: 768px)" />
+      <img
+        class="hero__image"
+        :src="avatarSrc"
+        :alt="`${bran.name} — дварф с капюшоном и родовым бочонком`"
+        width="768"
+        height="1376"
+      />
+    </picture>
     <div class="hero__scrim" aria-hidden="true" />
     <div class="hero__copy reveal">
-      <img class="hero__crest" :src="symbolSrc" alt="Родовой знак «Хмельная монета»" width="72" height="72" />
-      <p class="hero__brand">{{ bran.name }}</p>
+      <img class="hero__crest" :src="symbolSrc" alt="Родовой знак «Хмельная монета»" width="88" height="88" />
+      <p class="hero__brand">
+        <span class="hero__brand-name">Бран</span>
+        <span class="hero__brand-nick">«Пустая пинта»</span>
+        <span class="hero__brand-name">Пенобород</span>
+      </p>
       <p class="hero__tag">{{ bran.tagline }}</p>
       <p class="hero__hook">{{ bran.hook }}</p>
       <a class="hero__cta" href="#who">К листу и шпаргалке</a>
@@ -36,13 +44,16 @@ const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
   background: var(--olive-deep);
 }
 
-.hero__image {
+.hero__media {
   position: absolute;
   inset: 0;
+}
+
+.hero__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 35%;
 }
 
 .hero__scrim {
@@ -73,9 +84,9 @@ const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
 
 .hero__crest {
   display: block;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: 0 0 0.85rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 0 1rem;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -83,12 +94,27 @@ const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
 
 .hero__brand {
   margin: 0 0 0.65rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.1rem, 8.5vw, 3.4rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.2em;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  font-size: clamp(1.18rem, 4.8vw, 3.9rem);
   font-weight: 700;
   line-height: 1.05;
   color: var(--foam);
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero__brand-name {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+.hero__brand-nick {
+  font-family: var(--font-display);
+  font-size: 1.08em;
+  color: var(--amber-bright);
 }
 
 .hero__tag {
@@ -126,11 +152,16 @@ const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
 
 @media (min-width: 768px) {
   .hero__image {
-    object-position: center 22%;
+    object-position: center 30%;
   }
 
   .hero__copy {
     max-width: 40rem;
+  }
+
+  .hero__brand {
+    font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+    gap: 0.35em;
   }
 }
 </style>

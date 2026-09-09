@@ -56,6 +56,10 @@ import { bran } from '../data/bran'
 </template>
 
 <style scoped>
+.section__lead {
+  white-space: pre-line;
+}
+
 .who__traits {
   margin: 0 0 1.75rem;
   padding: 0.15rem 0 0.15rem 1rem;

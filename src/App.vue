@@ -31,7 +31,7 @@ import TurnCheatSheet from './components/TurnCheatSheet.vue'
   </main>
 
   <footer class="site-footer">
-    <p>Бран «Пустая пинта» Пивовар · шпаргалка к сессии в Виндене</p>
+    <p>Бран «Пустая пинта» Пенобород · шпаргалка к сессии в Виндене</p>
   </footer>
 </template>
 
