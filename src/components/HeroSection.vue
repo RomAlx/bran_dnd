@@ -2,6 +2,7 @@
 import { bran } from '../data/bran'
 
 const avatarSrc = `${import.meta.env.BASE_URL}bran-avatar.jpeg`
+const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
 </script>
 
 <template>
@@ -9,12 +10,13 @@ const avatarSrc = `${import.meta.env.BASE_URL}bran-avatar.jpeg`
     <img
       class="hero__image"
       :src="avatarSrc"
-      :alt="`${bran.name} в трактире с кружкой и бочонком`"
+      :alt="`${bran.name} — дварф с капюшоном и родовым бочонком`"
       width="1024"
       height="1024"
     />
     <div class="hero__scrim" aria-hidden="true" />
     <div class="hero__copy reveal">
+      <img class="hero__crest" :src="symbolSrc" alt="Родовой знак «Хмельная монета»" width="72" height="72" />
       <p class="hero__brand">{{ bran.name }}</p>
       <p class="hero__tag">{{ bran.tagline }}</p>
       <p class="hero__hook">{{ bran.hook }}</p>
@@ -67,6 +69,16 @@ const avatarSrc = `${import.meta.env.BASE_URL}bran-avatar.jpeg`
   padding: clamp(1.5rem, 6vw, 3rem) var(--pad) clamp(2.5rem, 8vw, 4rem);
   max-width: 36rem;
   animation: rise 0.9s ease both;
+}
+
+.hero__crest {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 0 0.85rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .hero__brand {
