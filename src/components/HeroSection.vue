@@ -20,7 +20,7 @@ const symbolSrc = `${import.meta.env.BASE_URL}bran-symbol.jpeg`
     </picture>
     <div class="hero__scrim" aria-hidden="true" />
     <div class="hero__copy reveal">
-      <img class="hero__crest" :src="symbolSrc" alt="Родовой знак «Хмельная монета»" width="88" height="88" />
+      <img class="hero__crest" :src="symbolSrc" alt="Знак гильдии «Хмельная монета»" width="88" height="88" />
       <p class="hero__brand">
         <span class="hero__brand-name">Бран</span>
         <span class="hero__brand-nick">«Пустая пинта»</span>
